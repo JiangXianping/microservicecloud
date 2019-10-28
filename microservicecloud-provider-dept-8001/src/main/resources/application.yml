@@ -1,0 +1,51 @@
+server:
+    port : 8001
+mybatis:
+    config-location : classpath:mybatis/mybatis.cfg.xml
+    type-aliases-package : com.jiang.model
+    mapper-locations : classpath:mybatis/mapper/**/*.xml
+
+
+spring:
+    datasource:
+        name: microservicecloud-dept
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/cloudDB01
+        username: root
+        password: 123456
+        type: com.alibaba.druid.pool.DruidDataSource
+        druid:
+            filters: stat, wall, log4j
+            max-active: 20
+            initial-size: 1
+            min-idle: 1
+            max-wait: 60000
+            time-between-eviction-runs-millis: 60000
+            min-evictable-idle-time-millis: 300000
+            validation-query: select 'x'
+            test-while-idle: true
+            test-on-borrow: false
+            test-on-return: false
+
+            # 打开PSCache，并且指定每个连接上PSCache的大小
+            pool-prepared-statements: true
+            max-open-prepared-statements: 20
+            # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+            connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+            # 合并多个DruidDataSource的监控数据
+            use-global-data-source-stat: true
+            # 配置DruidStatFilter
+            web-stat-filter:
+                enabled: true
+                url-pattern: "/*"
+                exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+            # 配置DruidStatViewServlet
+            stat-view-servlet:
+                url-pattern: "/druid/*"
+                allow:
+                deny:
+                login-username: druid
+                login-password: druid
+                reset-enable: false
+
+
