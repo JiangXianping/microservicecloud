@@ -1,15 +1,17 @@
 package com.jiang.model;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
 @NoArgsConstructor
-@Data
 @Accessors(chain = true)
+@Data
 public class Dept implements Serializable {
     private long deptno;        //主键
     private String dname;       //部门名称

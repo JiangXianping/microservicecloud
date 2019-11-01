@@ -1,6 +1,7 @@
 package com.jiang.service;
 
 import com.jiang.model.Dept;
+
 import java.util.List;
 
 public interface DeptService {

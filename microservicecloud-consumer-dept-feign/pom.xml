@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>microservicelcoud-consumer-dept-80</artifactId>
-    <description>部门微服务消费者</description>
+    <artifactId>microservicecloud-consumer-dept-feign</artifactId>
 
     <dependencies>
         <dependency>
@@ -49,6 +48,7 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-feign</artifactId>
+            <version>1.3.1.RELEASE</version>
         </dependency>
     </dependencies>
 </project>
